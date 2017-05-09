@@ -2,6 +2,7 @@
 using Frame.Proxy;
 using Frame.SysWindows.Windows.Common;
 using MahApps.Metro.Controls;
+using System.Diagnostics;
 
 namespace Frame.SysWindows
 {
@@ -15,7 +16,8 @@ namespace Frame.SysWindows
                     metroWindow.Close();
                     return null;
                 case "Bug 反馈":
-                    return new BugFeedback { Owner = metroWindow };
+                    Process.Start("http://www.devapplication.com");
+                    return null;
                 case "关于我们":
                     return new About { Owner = metroWindow };
                 default:
