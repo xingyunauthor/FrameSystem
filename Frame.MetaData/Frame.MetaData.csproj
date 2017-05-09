@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D2857FE-C388-4758-93F8-89431B2A1E17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Frame.MetaData</RootNamespace>
+    <AssemblyName>Frame.MetaData</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net40\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net40\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AffairService.cs" />
+    <Compile Include="ApplyService.cs" />
+    <Compile Include="ApplySortService.cs" />
+    <Compile Include="ApproveService.cs" />
+    <Compile Include="AreaService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="BuyItemService.cs" />
+    <Compile Include="BuyOutItemService.cs" />
+    <Compile Include="BuyOutService.cs" />
+    <Compile Include="BuyService.cs" />
+    <Compile Include="CauseSortService.cs" />
+    <Compile Include="ChanceItemService.cs" />
+    <Compile Include="ChanceService.cs" />
+    <Compile Include="CityService.cs" />
+    <Compile Include="ColumnService.cs" />
+    <Compile Include="CorpFileService.cs" />
+    <Compile Include="CorpService.cs" />
+    <Compile Include="DeptService.cs" />
+    <Compile Include="FileService.cs" />
+    <Compile Include="FileSortService.cs" />
+    <Compile Include="FinanceService.cs" />
+    <Compile Include="FrameContext.cs" />
+    <Compile Include="HandleService.cs" />
+    <Compile Include="IBaseService.cs" />
+    <Compile Include="IncomeService.cs" />
+    <Compile Include="IndustryService.cs" />
+    <Compile Include="InSmsService.cs" />
+    <Compile Include="KCorpService.cs" />
+    <Compile Include="KSortService.cs" />
+    <Compile Include="KStateService.cs" />
+    <Compile Include="LeftMenuPermissionsService.cs" />
+    <Compile Include="LeftMenusService.cs" />
+    <Compile Include="LinkManService.cs" />
+    <Compile Include="LinkService.cs" />
+    <Compile Include="LogService.cs" />
+    <Compile Include="MainService.cs" />
+    <Compile Include="NavBarGroupsService.cs" />
+    <Compile Include="NewsService.cs" />
+    <Compile Include="PactService.cs" />
+    <Compile Include="PaySortService.cs" />
+    <Compile Include="PermissionsService.cs" />
+    <Compile Include="PhaseService.cs" />
+    <Compile Include="PrintbarCodeService.cs" />
+    <Compile Include="ProductService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProSortService.cs" />
+    <Compile Include="QuoteItemService.cs" />
+    <Compile Include="QuoteService.cs" />
+    <Compile Include="RolesService.cs" />
+    <Compile Include="SaleItemService.cs" />
+    <Compile Include="SaleOutItemService.cs" />
+    <Compile Include="SaleOutService.cs" />
+    <Compile Include="SaleService.cs" />
+    <Compile Include="ServiceService.cs" />
+    <Compile Include="ServiceSortService.cs" />
+    <Compile Include="SetRoleService.cs" />
+    <Compile Include="SmsMbService.cs" />
+    <Compile Include="SmsService.cs" />
+    <Compile Include="SourceService.cs" />
+    <Compile Include="StaffRoleRelationshipsService.cs" />
+    <Compile Include="StaffService.cs" />
+    <Compile Include="StyleService.cs" />
+    <Compile Include="SysService.cs" />
+    <Compile Include="SysSettingService.cs" />
+    <Compile Include="TaskService.cs" />
+    <Compile Include="TopMenusService.cs" />
+    <Compile Include="TransportSortService.cs" />
+    <Compile Include="UnitService.cs" />
+    <Compile Include="UnusualService.cs" />
+    <Compile Include="UnusualSortService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Frame.Models\Frame.Models.csproj">
+      <Project>{0945d405-a7f6-438d-af1a-3d754b37306e}</Project>
+      <Name>Frame.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

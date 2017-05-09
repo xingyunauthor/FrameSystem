@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.AppPortal", "Frame.AppPortal\Frame.AppPortal.csproj", "{767644E6-8C04-4AB5-84A4-96557C02B517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.Login", "Frame.Login\Frame.Login.csproj", "{70E858AC-EF4D-4F5A-861B-7792C9A139DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.SysWindows", "Frame.SysWindows\Frame.SysWindows.csproj", "{61367CB8-8006-4F54-872D-13C22D00A5AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.Proxy", "Frame.Proxy\Frame.Proxy.csproj", "{22A8639D-8296-46E4-9BEA-E3377EBA4263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.Business", "Frame.Business\Frame.Business.csproj", "{D5B75AD4-8B0D-4C5D-A4C1-7F7144FEA846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.MetaData", "Frame.MetaData\Frame.MetaData.csproj", "{3D2857FE-C388-4758-93F8-89431B2A1E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.Models", "Frame.Models\Frame.Models.csproj", "{0945D405-A7F6-438D-AF1A-3D754B37306E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame.Utils", "Frame.Utils\Frame.Utils.csproj", "{3D810FB7-27A1-4AF5-BDF4-02967776ACAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{767644E6-8C04-4AB5-84A4-96557C02B517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767644E6-8C04-4AB5-84A4-96557C02B517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767644E6-8C04-4AB5-84A4-96557C02B517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767644E6-8C04-4AB5-84A4-96557C02B517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E858AC-EF4D-4F5A-861B-7792C9A139DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E858AC-EF4D-4F5A-861B-7792C9A139DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E858AC-EF4D-4F5A-861B-7792C9A139DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E858AC-EF4D-4F5A-861B-7792C9A139DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61367CB8-8006-4F54-872D-13C22D00A5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61367CB8-8006-4F54-872D-13C22D00A5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61367CB8-8006-4F54-872D-13C22D00A5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61367CB8-8006-4F54-872D-13C22D00A5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A8639D-8296-46E4-9BEA-E3377EBA4263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A8639D-8296-46E4-9BEA-E3377EBA4263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A8639D-8296-46E4-9BEA-E3377EBA4263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A8639D-8296-46E4-9BEA-E3377EBA4263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B75AD4-8B0D-4C5D-A4C1-7F7144FEA846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B75AD4-8B0D-4C5D-A4C1-7F7144FEA846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B75AD4-8B0D-4C5D-A4C1-7F7144FEA846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B75AD4-8B0D-4C5D-A4C1-7F7144FEA846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2857FE-C388-4758-93F8-89431B2A1E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2857FE-C388-4758-93F8-89431B2A1E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2857FE-C388-4758-93F8-89431B2A1E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2857FE-C388-4758-93F8-89431B2A1E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0945D405-A7F6-438D-AF1A-3D754B37306E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0945D405-A7F6-438D-AF1A-3D754B37306E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0945D405-A7F6-438D-AF1A-3D754B37306E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0945D405-A7F6-438D-AF1A-3D754B37306E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D810FB7-27A1-4AF5-BDF4-02967776ACAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D810FB7-27A1-4AF5-BDF4-02967776ACAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D810FB7-27A1-4AF5-BDF4-02967776ACAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D810FB7-27A1-4AF5-BDF4-02967776ACAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://zhutou.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Frame.AppPortal\\Frame.AppPortal.csproj
+		SccProjectName1 = Frame.AppPortal
+		SccLocalPath1 = Frame.AppPortal
+		SccProjectUniqueName2 = Frame.Business\\Frame.Business.csproj
+		SccProjectName2 = Frame.Business
+		SccLocalPath2 = Frame.Business
+		SccProjectUniqueName3 = Frame.Login\\Frame.Login.csproj
+		SccProjectName3 = Frame.Login
+		SccLocalPath3 = Frame.Login
+		SccProjectUniqueName4 = Frame.MetaData\\Frame.MetaData.csproj
+		SccProjectName4 = Frame.MetaData
+		SccLocalPath4 = Frame.MetaData
+		SccProjectUniqueName5 = Frame.Models\\Frame.Models.csproj
+		SccProjectName5 = Frame.Models
+		SccLocalPath5 = Frame.Models
+		SccProjectUniqueName6 = Frame.Proxy\\Frame.Proxy.csproj
+		SccProjectName6 = Frame.Proxy
+		SccLocalPath6 = Frame.Proxy
+		SccProjectUniqueName7 = Frame.SysWindows\\Frame.SysWindows.csproj
+		SccProjectName7 = Frame.SysWindows
+		SccLocalPath7 = Frame.SysWindows
+		SccProjectUniqueName8 = Frame.Utils\\Frame.Utils.csproj
+		SccProjectName8 = Frame.Utils
+		SccLocalPath8 = Frame.Utils
+	EndGlobalSection
+EndGlobal

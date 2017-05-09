@@ -1,0 +1,89 @@
+﻿<proxy:BaseWindow x:Class="Frame.SysWindows.Windows.Company.CompanyEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Frame.SysWindows.Windows.Company"
+             xmlns:proxy="clr-namespace:Frame.Proxy;assembly=Frame.Proxy"
+             mc:Ignorable="d" SizeToContent="WidthAndHeight" Title="公司信息设置" WindowStartupLocation="CenterOwner">
+    <Grid Margin="10" Width="580" d:DataContext="{d:DesignInstance local:CompanyEdit}">
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Style.Setters>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,0,5,0"/>
+                        <Setter Property="Width" Value="80"/>
+                    </Style.Setters>
+                </Style>
+                <Style TargetType="DockPanel">
+                    <Style.Setters>
+                        <Setter Property="Margin" Value="0,2"/>
+                    </Style.Setters>
+                </Style>
+            </StackPanel.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <DockPanel>
+                        <TextBlock Text="公司名称(*)"/>
+                        <TextBox Text="{Binding Path=CompanyName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="联系电话"/>
+                        <TextBox Text="{Binding Path=Telephone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="开户银行"/>
+                        <TextBox Text="{Binding Path=Bank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="税号"/>
+                        <TextBox Text="{Binding Path=TaxCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <DockPanel>
+                        <TextBlock Text="工商注册号"/>
+                        <TextBox Text="{Binding Path=RegCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="联系传真"/>
+                        <TextBox Text="{Binding Path=Fax, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="开户账号"/>
+                        <TextBox Text="{Binding Path=BankCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="电子邮箱"/>
+                        <TextBox Text="{Binding Path=Mail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+            <DockPanel>
+                <TextBlock Text="版权信息(*)"/>
+                <TextBox Text="{Binding Path=Copyright, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="联系地址"/>
+                <TextBox Text="{Binding Path=Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="备注"/>
+                <TextBox TextWrapping="Wrap" Height="130" Text="{Binding Path=Remark, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+            <Label BorderThickness="0,1,0,0" BorderBrush="#D6DBE9" Height="1" Margin="0,10"/>
+            <DockPanel>
+                <Button Content="取消" Width="80" DockPanel.Dock="Right" Click="BtnCancel_OnClick"/>
+                <Button Content="确定" Width="80" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,0,10,0" Click="BtnOk_OnClick"/>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</proxy:BaseWindow>
+

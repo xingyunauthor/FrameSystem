@@ -1,0 +1,61 @@
+﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              ColumnWidth="400" FontSize="14" FontFamily="宋体"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:core="clr-namespace:System;assembly=mscorlib" 
+              TextOptions.TextFormattingMode="Display">
+    <FlowDocument.Resources>
+        <Style TargetType="Table" x:Key="BorderedTable">
+            <Setter Property="CellSpacing" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+        </Style>
+        <Style TargetType="TableCell" x:Key="BorderedCell">
+            <Setter Property="BorderThickness" Value="0.5"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="Padding" Value="3"></Setter>
+        </Style>
+        <core:Boolean x:Key="PrintHeaderAndFooter">True</core:Boolean>
+    </FlowDocument.Resources>
+
+    <Table Style="{StaticResource BorderedTable}">
+        <Table.Columns>
+            <TableColumn Width="110"/>
+            <TableColumn Width="65"/>
+            <TableColumn Width="65"/>
+            <TableColumn Width="40"/>
+            <TableColumn Width="85"/>
+            <TableColumn Width="90" />
+            <TableColumn/>
+        </Table.Columns>
+        <TableRowGroup Name="RowsDetails">
+            <TableRow FontWeight="Bold" >
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph>员工编号</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph>姓名</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph>部门</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}" TextAlignment="Center">
+                    <Paragraph>性别</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph>入职日期</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph>电话号码</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph>联系地址</Paragraph>
+                </TableCell>
+            </TableRow>
+        </TableRowGroup>
+    </Table>
+
+    <Paragraph FontSize="16">
+        <Run>总共人数：</Run>
+        <Run Text="{Binding Path=TotalCount, Mode=OneWay}"></Run>
+    </Paragraph>
+</FlowDocument>

@@ -1,0 +1,27 @@
+﻿<proxy:BaseWindow x:Class="Frame.SysWindows.Windows.Common.About"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Frame.SysWindows.Windows.Common"
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:proxy="clr-namespace:Frame.Proxy;assembly=Frame.Proxy"
+             mc:Ignorable="d" 
+             Width="500" Height="300" ShowMaxRestoreButton="False" ShowMinButton="False"
+             WindowStartupLocation="CenterOwner" Title="关于我们">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="110"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <TextBlock Text="WPF 通用权限开发框架 V0.1 beta" FontSize="30" HorizontalAlignment="Center"/>
+            <TextBlock Text="Copyright © 2016-2017" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+        </StackPanel>
+        <Button Grid.Row="1" Content="官网" Width="80" Height="30" Margin="0, 0, 0, 25" VerticalAlignment="Bottom" Click="BtnOpenWebsite_OnClick"/>
+    </Grid>
+</proxy:BaseWindow>
+
+
+

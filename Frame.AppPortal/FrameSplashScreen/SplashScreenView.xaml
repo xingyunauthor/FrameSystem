@@ -1,0 +1,35 @@
+﻿<Window x:Class="Frame.AppPortal.FrameSplashScreen.SplashScreenView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frame.AppPortal"
+        xmlns:utils="clr-namespace:Frame.Utils;assembly=Frame.Utils"
+        mc:Ignorable="d"
+        Title="loading" SizeToContent="WidthAndHeight">
+    <Grid d:DataContext="{d:DesignInstance utils:SplashScreenViewModel}">
+        <Grid Width="450" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0">
+            <Grid>
+                <Border Background="Black" CornerRadius="3" Opacity="0.15"/>
+                <Border CornerRadius="2" Margin="1" Background="White"/>
+            </Grid>
+            <Grid Margin="12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Source="Image.png" Stretch="None"/>
+                <DockPanel Grid.Row="2" Margin="12, 24, 12, 0">
+                    <TextBlock Text="正在准备数据，请稍等" Foreground="#FF2D2D2D"/>
+                    <TextBlock Text="{Binding Path=LoadingValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2,0,0,0"/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Margin="12,20,12,4">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Path=Copyright}" Opacity="0.5" Foreground="#FF2D2D2D" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Path=CompanyName}" Opacity="0.5" Foreground="#FF2D2D2D" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.UserManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Frame.SysWindows.Controls"
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:staff="clr-namespace:Frame.Models.SysModels.Staff;assembly=Frame.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid d:DataContext="{d:DesignInstance local:UserManager}">
+        <StackPanel>
+            <ToolBarTray VerticalAlignment="Top">
+                <ToolBar>
+                    <Button Content="添加" Style="{StaticResource StyleTBtnAdd}" Click="BtnAdd_OnClick"/>
+                    <Button Content="修改" Style="{StaticResource StyleTBtnEdit}" Click="BtnUpdate_OnClick"/>
+                    <Button Content="删除" Style="{StaticResource StyleTBtnDelete}" Click="BtnDelete_OnClick"/>
+                    <Button Content="导出" Style="{StaticResource StyleTBtnExport}" Click="BtnExport_OnClick"/>
+                    <Button Content="打印" Style="{StaticResource StyleTBtnPrint}" Click="BtnPrint_OnClick"/>
+                </ToolBar>
+            </ToolBarTray>
+            <DockPanel Margin="0,10">
+                <Button Content="搜索" Width="70" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="BtnSearch_OnClick"/>
+                <TextBox DockPanel.Dock="Right" HorizontalAlignment="Right" Width="250" Margin="0,0,5,0" metro:TextBoxHelper.Watermark="输入编号/姓名/电话/地址/备注查询"
+                         Text="{Binding Path=Keywords}"/>
+            </DockPanel>
+        </StackPanel>
+        <Grid Margin="0,73,0,0">
+            <DataGrid x:Name="DgStaffs" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False"
+                      ItemsSource="{Binding Path=StaffAll}" d:DataContext="{d:DesignInstance staff:StaffAllResponseModel}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="序号">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=RowId}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="员工编号">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Code}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="员工姓名">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=StaffName}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="所属部门">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=DeptName}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="性别">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Sex}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="出生日期">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Birthday}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="入职日期">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=InTime}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="电话号码">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Telephone}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="联系地址">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Address}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="状态">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=StateName}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="备注">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Remark}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.OperatorAddEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Frame.SysWindows.Controls"
+             xmlns:mvModels="clr-namespace:Frame.SysWindows.MVModels"
+             xmlns:utils="clr-namespace:Frame.Utils;assembly=Frame.Utils"
+             mc:Ignorable="d" 
+             d:DesignWidth="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10" d:DataContext="{d:DesignInstance mvModels:OperatorAddEditModel}">
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Style.Setters>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,0,5,0"/>
+                        <Setter Property="Width" Value="90"/>
+                    </Style.Setters>
+                </Style>
+                <Style TargetType="DockPanel">
+                    <Style.Setters>
+                        <Setter Property="Margin" Value="0,2"/>
+                    </Style.Setters>
+                </Style>
+            </StackPanel.Resources>
+            <DockPanel>
+                <TextBlock Text="选择职员(*)："/>
+                <Button DockPanel.Dock="Right" Margin="5,0,0,0" Padding="6,0" ContentTemplate="{StaticResource SearchIcoTemplate}" Click="BtnSelectStaff_OnClick" />
+                <TextBox IsReadOnly="True" Text="{Binding Path=StaffName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="登录名(*)："/>
+                <TextBox Text="{Binding Path=LogonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" IsEnabled="{Binding Path=LogonNameEnable, Mode=TwoWay}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="登陆密码(*)："/>
+                <PasswordBox utils:PasswordBoxHelper.Password="{Binding Path=LogonPwd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="确认密码(*)："/>
+                <PasswordBox utils:PasswordBoxHelper.Password="{Binding Path=ConfirmLogonPwd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="用户角色："/>
+                <DataGrid Height="170" AutoGenerateColumns="False" CanUserAddRows="False"
+                          ItemsSource="{Binding Path=Roles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="授权">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding Path=Checked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="角色名称">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=RoleName}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+            <Label BorderThickness="0,1,0,0" BorderBrush="#D6DBE9" Height="1" Margin="0,10"/>
+            <DockPanel>
+                <Button Content="取消" Width="80" DockPanel.Dock="Right" Click="BtnCancel_OnClick"/>
+                <Button Content="确定" Width="80" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,0,10,0" Click="BtnOk_OnClick"/>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

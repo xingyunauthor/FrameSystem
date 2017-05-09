@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.OperatorManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:local="clr-namespace:Frame.SysWindows.Controls"
+             xmlns:mvModels="clr-namespace:Frame.SysWindows.MVModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid d:DataContext="{d:DesignInstance local:OperatorManager}">
+        <StackPanel>
+            <ToolBarTray>
+                <ToolBar>
+                    <Button Content="添加" Style="{StaticResource StyleTBtnAdd}" Click="BtnAdd_OnClick"/>
+                    <Button Content="修改" Style="{StaticResource StyleTBtnEdit}" Click="BtnEdit_OnClick"/>
+                    <Button Content="删除" Style="{StaticResource StyleTBtnDelete}" Click="BtnDelete_OnClick"/>
+                </ToolBar>
+            </ToolBarTray>
+            <DockPanel Margin="0,10">
+                <Button Content="搜索" Width="70" DockPanel.Dock="Right" Margin="5,0,0,0" Click="BtnSearch_OnClick"/>
+                <TextBox Width="250" DockPanel.Dock="Right" HorizontalAlignment="Right" metro:TextBoxHelper.Watermark="请输入登录名查询"
+                         Text="{Binding Path=Keywords}"/>
+            </DockPanel>
+        </StackPanel>
+        <DataGrid x:Name="DgOperator" Margin="0,73,0,0" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single"
+                  ItemsSource="{Binding Path=OperatorList}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="序号">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=RowId}" TextAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="姓名" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=StaffName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="登陆名" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=LogonName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="角色" Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=RoleName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

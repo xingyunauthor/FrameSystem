@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.UserAddEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mvModels="clr-namespace:Frame.SysWindows.MVModels"
+             xmlns:controls="clr-namespace:Frame.SysWindows.Controls"
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignWidth="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10" d:DataContext="{d:DesignInstance mvModels:StaffAddEdit}">
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Style.Setters>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,0,5,0"/>
+                        <Setter Property="Width" Value="80"/>
+                    </Style.Setters>
+                </Style>
+                <Style TargetType="DockPanel">
+                    <Style.Setters>
+                        <Setter Property="Margin" Value="0,2"/>
+                    </Style.Setters>
+                </Style>
+            </StackPanel.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="84"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <DockPanel>
+                        <TextBlock Text="员工编号(*)："/>
+                        <TextBox Text="{Binding Path=Code, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                                 IsReadOnly="{Binding Path=CodeReadonly}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="性别："/>
+                        <RadioButton Height="{Binding ElementName=TxtDept, Path=ActualHeight}" Content="男" IsChecked="{Binding Path=SexMale}"/>
+                        <RadioButton Content="女" Margin="10,0" IsChecked="{Binding Path=SexFemale}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="入职日期："/>
+                        <DatePicker Text="{Binding Path=InTime, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="联系电话："/>
+                        <TextBox Text="{Binding Path=Telephone, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
+                    </DockPanel>
+                </StackPanel>
+                <DockPanel Grid.Column="1" VerticalAlignment="Top" Margin="6">
+                    <CheckBox Content="自动编号" IsChecked="{Binding Path=AutoCode}"/>
+                </DockPanel>
+                <StackPanel Grid.Column="2">
+                    <DockPanel>
+                        <TextBlock Text="员工姓名(*)："/>
+                        <TextBox Text="{Binding Path=StaffName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="所在部门(*)："/>
+                        <Button ContentTemplate="{StaticResource SearchIcoTemplate}" DockPanel.Dock="Right" Margin="1,0,0,0" Click="BtnDept_OnClick"/>
+                        <TextBox x:Name="TxtDept" IsReadOnly="True" Text="{Binding Path=DeptName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}" />
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="出生日期："/>
+                        <DatePicker Text="{Binding Path=Birthday, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="是否启用："/>
+                        <RadioButton Content="是" Height="{Binding ElementName=TxtDept, Path=ActualHeight}" IsChecked="{Binding Path=Enable}"/>
+                        <RadioButton Content="否" Margin="10,0" IsChecked="{Binding Path=UnEnable}"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+            <DockPanel>
+                <TextBlock Text="联系地址："/>
+                <TextBox Text="{Binding Path=Address}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="备注："/>
+                <TextBox Height="100" Text="{Binding Path=Remark}"/>
+            </DockPanel>
+            <Label BorderThickness="0,1,0,0" BorderBrush="#D6DBE9" Height="1" Margin="0,10"/>
+            <DockPanel x:Name="DpOperation" d:DataContext="{d:DesignInstance controls:UserAddEdit}">
+                <CheckBox Content="保存后继续新增" DockPanel.Dock="Left" Visibility="{Binding Path=ShowContinueCheck}" IsChecked="{Binding Path=ContinueCheck}"/>
+                <Button Content="取消" Width="80" DockPanel.Dock="Right" Click="BtnCancel_OnClick"/>
+                <Button Content="确定" Width="80" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,0,10,0" Click="BtnOk_OnClick"/>
+            </DockPanel>
+        </StackPanel>
+        <Popup x:Name="PopupDept" AllowsTransparency="True" PlacementTarget="{Binding ElementName=TxtDept}" StaysOpen="False" IsOpen="False" PopupAnimation="Fade" Placement="Bottom">
+            <Popup.Child>
+                <Border Margin="2" BorderThickness="1" BorderBrush="#E5E5E5" CornerRadius="1">
+                    <TreeView ItemsSource="{Binding Path=DeptAll}" Width="160" SelectedItemChanged="TvDept_OnSelectedItemChanged">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes}">
+                                <DockPanel>
+                                    <TextBlock Text="{Binding Path=DeptName}"/>
+                                </DockPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </Border>
+            </Popup.Child>
+        </Popup>
+    </Grid>
+</UserControl>

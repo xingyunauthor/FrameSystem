@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.DeptManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Frame.SysWindows.Controls"
+             xmlns:dept="clr-namespace:Frame.Models.SysModels.Dept;assembly=Frame.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <ToolBarTray VerticalAlignment="Top">
+            <ToolBar>
+                <Button Content="添加" Style="{StaticResource StyleTBtnAdd}" Click="BtnAdd_OnClick"/>
+                <Button Content="修改" Style="{StaticResource StyleTBtnEdit}" Click="BtnUpdate_OnClick"/>
+                <Button Content="删除" Style="{StaticResource StyleTBtnDelete}" Click="BtnDelete_OnClick"/>
+            </ToolBar>
+        </ToolBarTray>
+        <TreeView Margin="0,27,0,0" x:Name="TvDept" d:DataContext="{d:DesignInstance dept:DeptAllResponseModel}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes}">
+                    <DockPanel>
+                        <TextBlock Text="{Binding Path=DeptName}"/>
+                    </DockPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </Grid>
+</UserControl>

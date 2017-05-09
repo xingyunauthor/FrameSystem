@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0945D405-A7F6-438D-AF1A-3D754B37306E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Frame.Models</RootNamespace>
+    <AssemblyName>Frame.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net40\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Affair.cs" />
+    <Compile Include="Apply.cs" />
+    <Compile Include="ApplySort.cs" />
+    <Compile Include="Approve.cs" />
+    <Compile Include="Area.cs" />
+    <Compile Include="Buy.cs" />
+    <Compile Include="BuyItem.cs" />
+    <Compile Include="BuyOut.cs" />
+    <Compile Include="BuyOutItem.cs" />
+    <Compile Include="CauseSort.cs" />
+    <Compile Include="Chance.cs" />
+    <Compile Include="ChanceItem.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Column.cs" />
+    <Compile Include="interfaces\IMenus.cs" />
+    <Compile Include="SettingModels\Banner.cs" />
+    <Compile Include="SettingModels\Company.cs" />
+    <Compile Include="SysModels\CommandResult.cs" />
+    <Compile Include="Corp.cs" />
+    <Compile Include="CorpFile.cs" />
+    <Compile Include="Dept.cs" />
+    <Compile Include="File.cs" />
+    <Compile Include="FileSort.cs" />
+    <Compile Include="Finance.cs" />
+    <Compile Include="Handle.cs" />
+    <Compile Include="Income.cs" />
+    <Compile Include="Industry.cs" />
+    <Compile Include="InSms.cs" />
+    <Compile Include="KCorp.cs" />
+    <Compile Include="KSort.cs" />
+    <Compile Include="KState.cs" />
+    <Compile Include="LeftMenuPermissions.cs" />
+    <Compile Include="LeftMenus.cs" />
+    <Compile Include="Link.cs" />
+    <Compile Include="LinkMan.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="NavBarGroups.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="Pact.cs" />
+    <Compile Include="PaySort.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Phase.cs" />
+    <Compile Include="PrintbarCode.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProSort.cs" />
+    <Compile Include="Quote.cs" />
+    <Compile Include="QuoteItem.cs" />
+    <Compile Include="Roles.cs" />
+    <Compile Include="Sale.cs" />
+    <Compile Include="SaleItem.cs" />
+    <Compile Include="SaleOut.cs" />
+    <Compile Include="SaleOutItem.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="ServiceSort.cs" />
+    <Compile Include="SetRole.cs" />
+    <Compile Include="Sms.cs" />
+    <Compile Include="SmsMb.cs" />
+    <Compile Include="Source.cs" />
+    <Compile Include="Staff.cs" />
+    <Compile Include="StaffRoleRelationships.cs" />
+    <Compile Include="Style.cs" />
+    <Compile Include="Sys.cs" />
+    <Compile Include="SysModels\Common\GetConnectionResponseModel.cs" />
+    <Compile Include="SysModels\Common\SplashScreenDataModel.cs" />
+    <Compile Include="SysModels\Dept\DeptAddRequestModel.cs" />
+    <Compile Include="SysModels\Dept\DeptAllResponseModel.cs" />
+    <Compile Include="SysModels\Dept\DeptUpdateRequestModel.cs" />
+    <Compile Include="SysModels\LeftMenuPermissions\ModifyPermissionsRequestModel.cs" />
+    <Compile Include="SysModels\LeftMenus\LeftMenusAddRequestModel.cs" />
+    <Compile Include="SysModels\LeftMenus\LeftMenusUpdateRequestModel.cs" />
+    <Compile Include="SysModels\Log\LogAddRequestModel.cs" />
+    <Compile Include="SysModels\Log\LogAllResponseModel.cs" />
+    <Compile Include="SysModels\MainWindow\DocumentPanelCaptionModel.cs" />
+    <Compile Include="SysModels\NavBarGroups\NavBarGroupsAddRequestModel.cs" />
+    <Compile Include="SysModels\NavBarGroups\NavBarGroupsUpdateRequestModel.cs" />
+    <Compile Include="SysModels\Operator\OperatorAllResponseModel.cs" />
+    <Compile Include="SysModels\Operator\OperatorLogonRequestModel.cs" />
+    <Compile Include="SysModels\Permissions\PermissionsAddRequestModel.cs" />
+    <Compile Include="SysModels\Permissions\PermissionsUpdateRequestModel.cs" />
+    <Compile Include="SysModels\Roles\RoleEditRequestModel.cs" />
+    <Compile Include="SysModels\Staff\OperatorAddResponseModel.cs" />
+    <Compile Include="SysModels\Staff\OperatorEditResponseModel.cs" />
+    <Compile Include="SysModels\Staff\StaffAddRequestModel.cs" />
+    <Compile Include="SysModels\Staff\StaffAllResponseModel.cs" />
+    <Compile Include="SysModels\Staff\UserManagerPrintModel.cs" />
+    <Compile Include="SysModels\Staff\StaffUpdateRequestModel.cs" />
+    <Compile Include="SysModels\TopMenus\AllTopMenusHierarchicalDataModel.cs" />
+    <Compile Include="SysModels\TopMenus\TopMenusAddRequestModel.cs" />
+    <Compile Include="SysModels\TopMenus\TopMenusUpdateRequestModel.cs" />
+    <Compile Include="SysSetting.cs" />
+    <Compile Include="Task.cs" />
+    <Compile Include="TopMenus.cs" />
+    <Compile Include="TransportSort.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="Unusual.cs" />
+    <Compile Include="UnusualSort.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

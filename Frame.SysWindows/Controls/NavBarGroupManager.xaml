@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.NavBarGroupManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:local="clr-namespace:Frame.SysWindows.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <ToolBarTray Margin="0" VerticalAlignment="Top">
+            <ToolBar Margin="0">
+                <Button Content="添加" Style="{StaticResource StyleTBtnAdd}" Click="TbEdit_OnAddClick"/>
+                <Button Content="删除" Style="{StaticResource StyleTBtnDelete}" Click="TbEdit_OnDeleteClick"/>
+                <Button Content="刷新功能组菜单" Style="{StaticResource StyleTBtnRefresh}" Click="BtnRefreshNavBarGroup_OnClick"/>
+            </ToolBar>
+        </ToolBarTray>
+        <DockPanel Margin="0,27,0,0">
+            <Grid x:Name="GridNavBarGroup" MaxWidth="200"></Grid>
+            <Grid Margin="10,0,0,0" d:DataContext="{d:DesignInstance local:NavBarGroupManager}">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="TextAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="0,0,5,0"/>
+                            <Setter Property="Width" Value="80"/>
+                        </Style>
+                        <Style TargetType="{x:Type DockPanel}">
+                            <Setter Property="Margin" Value="0,2"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <DockPanel>
+                        <TextBlock Text="功能组名称："/>
+                        <TextBox Text="{Binding Path=NavBarGroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="图标："/>
+                        <Image Source="{Binding Path=IcoSource, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Stretch="Uniform" Width="32" Height="32"/>
+                        <Button DockPanel.Dock="Left" HorizontalAlignment="Left" Width="35" Margin="5,0,0,0" Padding="6,0" ContentTemplate="{StaticResource SearchIcoTemplate}" Click="BtnIcoSelect_OnClick"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="排序："/>
+                        <metro:NumericUpDown Value="{Binding Path=Sort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+                    </DockPanel>
+                    <Label BorderThickness="0,1,0,0" BorderBrush="#D6DBE9" Height="1" Margin="0,10"/>
+                    <DockPanel Visibility="{Binding Path=VisibilityDockPanelModify}">
+                        <Button Content="保存" DockPanel.Dock="Right" Width="100" Height="28" Margin="10,0,0,0" Click="BtnEdit_OnClick"/>
+                        <Button Content="重置" HorizontalAlignment="Right" Width="100" Height="28" Click="BtnReset_OnClick"/>
+                    </DockPanel>
+                    <DockPanel Visibility="{Binding Path=VisibilityDockPanelNew}">
+                        <Button Content="添加" DockPanel.Dock="Right" Width="100" Height="28" Margin="10,0,0,0" Click="BtnAdd_OnClick"/>
+                        <Button Content="清空" HorizontalAlignment="Right" Width="100" Height="28" Click="BtnClear_OnClick"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</UserControl>

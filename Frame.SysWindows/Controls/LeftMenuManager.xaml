@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.LeftMenuManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:mvModels="clr-namespace:Frame.SysWindows.MVModels"
+             xmlns:local="clr-namespace:Frame.SysWindows.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ToolBarTray VerticalAlignment="Top">
+            <ToolBar Margin="0">
+                <Button Content="添加" Style="{StaticResource StyleTBtnAdd}" Click="TbEdit_OnAddClick"/>
+                <Button Content="删除" Style="{StaticResource StyleTBtnDelete}" Click="TbEdit_OnDeleteClick"/>
+                <Button Content="刷新树形菜单" Style="{StaticResource StyleTBtnRefresh}" Click="BtnRefreshLeftMenu_OnClick"/>
+            </ToolBar>
+        </ToolBarTray>
+        <DockPanel Grid.Row="1">
+            <Grid x:Name="GridLeftMenu" MaxWidth="200"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="10,0,0,0" d:DataContext="{d:DesignInstance local:LeftMenuManager}">
+                    <StackPanel>
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextAlignment" Value="Right"/>
+                                <Setter Property="Margin" Value="0,0,5,0"/>
+                                <Setter Property="Width" Value="86"/>
+                            </Style>
+                            <Style TargetType="{x:Type DockPanel}">
+                                <Setter Property="Margin" Value="0,2"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <DockPanel>
+                            <TextBlock Text="菜单名称："/>
+                            <TextBox Text="{Binding Path=DisplayName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock Text="dll 路径："/>
+                            <Button DockPanel.Dock="Right" Margin="5,0,0,0" Padding="6,0" ContentTemplate="{StaticResource SearchIcoTemplate}" Click="BtnSelectDll_OnClick" />
+                            <TextBox Text="{Binding Path=DllPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock Text="菜单唯一标识："/>
+                            <TextBox Text="{Binding Path=MenuId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock Text="入口函数："/>
+                            <TextBox Text="{Binding Path=EntryFunction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock Text="父级菜单："/>
+                            <Button DockPanel.Dock="Right" Margin="5,0,0,0" Padding="6,0" ContentTemplate="{StaticResource SearchIcoTemplate}" Click="BtnShowLeftMenuWindow_OnClick" />
+                            <TextBox IsReadOnly="True" Text="{Binding Path=ParentDisplayName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock Text="随系统启动："/>
+                            <DockPanel>
+                                <RadioButton Content="是" IsChecked="{Binding Path=StartWithSysYes, Mode=TwoWay}"/>
+                                <RadioButton Content="否" IsChecked="{Binding Path=StartWithSysNo, Mode=TwoWay}" Margin="8,0,0,0"/>
+                            </DockPanel>
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock Text="排序："/>
+                            <Button Width="100" Click="BtnUp_OnClick" Height="28">
+                                <DockPanel>
+                                    <Image Source="{dx:DXImage Image=MoveUp_16x16.png}" Stretch="Uniform" />
+                                    <TextBlock Width="25" Text="上移" />
+                                </DockPanel>
+                            </Button>
+                            <Button Width="100" HorizontalAlignment="Left" Margin="10,0,0,0" Click="BtnDown_OnClick" Height="28">
+                                <DockPanel>
+                                    <Image Source="{dx:DXImage Image=MoveDown_16x16.png}" Stretch="Uniform" />
+                                    <TextBlock Width="25" Text="下移" />
+                                </DockPanel>
+                            </Button>
+                        </DockPanel>
+                        <Label BorderThickness="0,1,0,0" BorderBrush="#D6DBE9" Height="1" Margin="0,10"/>
+                        <DockPanel Visibility="{Binding Path=VisibilityDockPanelModify}">
+                            <Button x:Name="BtnSave" Content="保存" Width="100" Height="28" DockPanel.Dock="Right" IsEnabled="{Binding Path=EnableBtnSave}" Click="BtnSave_OnClick"/>
+                            <Button x:Name="BtnReset" Content="重置" Width="100" Height="28" HorizontalAlignment="Right" Margin="0,0,10,0" IsEnabled="{Binding Path=EnableBtnReset}" Click="BtnReset_OnClick"/>
+                        </DockPanel>
+                        <DockPanel Visibility="{Binding Path=VisibilityDockPanelNew}">
+                            <Button x:Name="BtnAdd" Content="添加" Width="100" Height="28" DockPanel.Dock="Right" Click="BtnAdd_OnClick"/>
+                            <Button x:Name="BtnClear" Content="清空" Width="100" Height="28" HorizontalAlignment="Right" Margin="0,0,10,0" Click="BtnClear_OnClick"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1" Margin="10,0,0,0">
+                    <dx:DXTabControl>
+                        <dx:DXTabItem Header="入口类选择">
+                            <Grid d:DataContext="{d:DesignInstance mvModels:DgDllEntryClass}">
+                                <DataGrid x:Name="DataGridMain" AutoGenerateColumns="False" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="编号">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Id}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="选择">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox HorizontalAlignment="Center" IsChecked="{Binding Path=IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="类名">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Path=FullName}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </dx:DXTabItem>
+                    </dx:DXTabControl>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</UserControl>

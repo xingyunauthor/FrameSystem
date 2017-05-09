@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61367CB8-8006-4F54-872D-13C22D00A5AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Frame.SysWindows</RootNamespace>
+    <AssemblyName>Frame.SysWindows</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Frame.AppPortal\bin\Debug\platform\SYS\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Controls.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.NavBar.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="MahApps.Metro, Version=1.4.1.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.1\lib\net40\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\BannerDefault.xaml.cs">
+      <DependentUpon>BannerDefault.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BannerManager.xaml.cs">
+      <DependentUpon>BannerManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CTreeView.cs" />
+    <Compile Include="Controls\DeptManager.xaml.cs">
+      <DependentUpon>DeptManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExceptionManager.xaml.cs">
+      <DependentUpon>ExceptionManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LeftMenu.xaml.cs">
+      <DependentUpon>LeftMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LeftMenuManager.xaml.cs">
+      <DependentUpon>LeftMenuManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoginLogManager.xaml.cs">
+      <DependentUpon>LoginLogManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoginThemeManager.xaml.cs">
+      <DependentUpon>LoginThemeManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavBarGroupManager.xaml.cs">
+      <DependentUpon>NavBarGroupManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OperatorAddEdit.xaml.cs">
+      <DependentUpon>OperatorAddEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OperatorManager.xaml.cs">
+      <DependentUpon>OperatorManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RolesManager.xaml.cs">
+      <DependentUpon>RolesManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TopMenuManager.xaml.cs">
+      <DependentUpon>TopMenuManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserAddEdit.xaml.cs">
+      <DependentUpon>UserAddEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserManager.xaml.cs">
+      <DependentUpon>UserManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Files.cs" />
+    <Compile Include="MVModels\BannerManagerViewModel.cs" />
+    <Compile Include="MVModels\BugFeedbackViewModel.cs" />
+    <Compile Include="MVModels\RolesManagerViewModel.cs" />
+    <Compile Include="MVModels\SplashScreenViewModel.cs" />
+    <Compile Include="MVModels\DgDllEntryClass.cs" />
+    <Compile Include="MVModels\OperatorAddEdit.cs" />
+    <Compile Include="MVModels\RolesManager.cs" />
+    <Compile Include="MVModels\StaffManager.cs" />
+    <Compile Include="NetUserControl.cs" />
+    <Resource Include="Prints\LoginLogManagerPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Compile Include="NetUserControlForTop.cs" />
+    <Compile Include="Prints\LoginLogManagerPrintRender.cs" />
+    <Compile Include="Prints\UserManagerPrintRender.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\Common\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Common\BugFeedback.xaml.cs">
+      <DependentUpon>BugFeedback.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Common\DllPathRefer.xaml.cs">
+      <DependentUpon>DllPathRefer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Common\LeftMenuRefer.xaml.cs">
+      <DependentUpon>LeftMenuRefer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Common\ModifyPassword.xaml.cs">
+      <DependentUpon>ModifyPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Common\NavBarGroupIcoRefer.xaml.cs">
+      <DependentUpon>NavBarGroupIcoRefer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Common\SystemInit.xaml.cs">
+      <DependentUpon>SystemInit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Company\CompanyEdit.xaml.cs">
+      <DependentUpon>CompanyEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Staff\OperatorAdd.xaml.cs">
+      <DependentUpon>OperatorAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Staff\OperatorEdit.xaml.cs">
+      <DependentUpon>OperatorEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Staff\StaffAdd.xaml.cs">
+      <DependentUpon>StaffAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Staff\StaffEdit.xaml.cs">
+      <DependentUpon>StaffEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Staff\StaffRefer.xaml.cs">
+      <DependentUpon>StaffRefer.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Frame.Business\Frame.Business.csproj">
+      <Project>{d5b75ad4-8b0d-4c5d-a4c1-7f7144fea846}</Project>
+      <Name>Frame.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frame.Models\Frame.Models.csproj">
+      <Project>{0945d405-a7f6-438d-af1a-3d754b37306e}</Project>
+      <Name>Frame.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frame.Proxy\Frame.Proxy.csproj">
+      <Project>{22a8639d-8296-46e4-9bea-e3377eba4263}</Project>
+      <Name>Frame.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frame.Utils\Frame.Utils.csproj">
+      <Project>{3d810fb7-27a1-4af5-bdf4-02967776acac}</Project>
+      <Name>Frame.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\BannerDefault.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BannerManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DeptManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ExceptionManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LeftMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LeftMenuManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LoginLogManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LoginThemeManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NavBarGroupManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\OperatorAddEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\OperatorManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RolesManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TopMenuManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UserAddEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Common\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Common\BugFeedback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Common\DllPathRefer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Common\LeftMenuRefer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Common\ModifyPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Common\NavBarGroupIcoRefer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Common\SystemInit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Company\CompanyEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Staff\OperatorAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Staff\OperatorEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Staff\StaffAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Staff\StaffEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Staff\StaffRefer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Customer_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Home_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Properties_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Resource Include="Prints\UserManagerPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Article_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\New_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Open_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Open2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BannerDefault.jpeg" />
+    <Resource Include="Resources\OperatingSystem_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ProgrammingLanguage_32x32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

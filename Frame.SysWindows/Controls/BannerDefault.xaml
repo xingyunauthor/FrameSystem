@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Frame.SysWindows.Controls.BannerDefault"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Frame.SysWindows.Controls"
+             xmlns:proxy="clr-namespace:Frame.Proxy.Controls;assembly=Frame.Proxy"
+             mc:Ignorable="d"
+             BorderThickness="0,1" BorderBrush="#DDDDDD" Background="#99FFFFFF" Height="60">
+    <Border>
+        <Border.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/Frame.Proxy;component/Themes/AppDictionary.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Border.Resources>
+        <Grid>
+            <Image Source="pack://application:,,,/Frame.SysWindows;component/Resources/BannerDefault.jpeg" Stretch="Uniform" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15,0,0,0">
+                <Image Source="pack://application:,,,/Frame.SysWindows;component/Resources/ProgrammingLanguage_32x32.png" Stretch="None"/>
+                <TextBlock Text="WPF通用权限开发框架" FontSize="25" Foreground="#4D82B8" FontFamily="Segoe Script"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,35,0">
+                <StackPanel.Resources>
+                    <Style TargetType="proxy:BaseImgButton" BasedOn="{StaticResource StyleBannerButton}">
+                        <Setter Property="Margin" Value="20,0,0,0"/>
+                        <Setter Property="ImageWidth" Value="22"/>
+                        <Setter Property="ImageHeight" Value="22"/>
+                    </Style>
+                </StackPanel.Resources>
+                <proxy:BaseImgButton Content="计算器" Click="BtnOpenCalculator_OnClick" 
+                                 ImageSource="pack://application:,,,/Frame.Proxy;component/Resources/Calculator_32x32.png"/>
+                <proxy:BaseImgButton Content="帮助" 
+                                 ImageSource="pack://application:,,,/Frame.Proxy;component/Resources/Info_32x32.png"/>
+                <proxy:BaseImgButton Content="退出" Click="BtnExit_OnClick"
+                                 ImageSource="pack://application:,,,/Frame.Proxy;component/Resources/Exit2_32x32.png"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
