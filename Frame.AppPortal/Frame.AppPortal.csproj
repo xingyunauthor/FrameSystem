@@ -144,6 +144,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Screenshots\Banner设置.jpg" />
+    <None Include="Screenshots\功能组管理.jpg" />
+    <None Include="Screenshots\左侧菜单管理.jpg" />
+    <None Include="Screenshots\权限管理.jpg" />
+    <None Include="Screenshots\顶部菜单管理.jpg" />
     <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -160,6 +165,7 @@
     <None Include="images\Properties_32x32.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="DB\MySQL\FRAME_MYSQL.sql" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
