@@ -60,9 +60,6 @@
   <ItemGroup>
     <Compile Include="BaseWindow.cs" />
     <Compile Include="ClsLoginModel.cs" />
-    <Compile Include="Controls\BannerButton.xaml.cs">
-      <DependentUpon>BannerButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\BaseImgButton.cs" />
     <Compile Include="Controls\TreeViewImgItem.cs" />
     <Compile Include="Enums\PermissionsEnum.cs" />
@@ -76,10 +73,6 @@
     <Compile Include="Windows\PrintPreviewWindow.xaml.cs">
       <DependentUpon>PrintPreviewWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\BannerButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\AppDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
